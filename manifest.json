@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "TradingView CSV Builder",
+    "description": "This extension lets you extract backtest results and copy them to the clipboard.",
+    "version": "1.0",
+    "browser_action": {
+        "default_icon": "logo.png",
+        "default_popup": "popup.html",
+        "default_title": "TradingView CSV Builder"
+    },
+    "content_scripts": [{
+        "matches": ["*://*.tradingview.com/*"],
+        "all_frames": false,
+        "js":      [
+            "scripts/jquery.min.js",
+            "scripts/content.js"
+        ]
+    }],
+    "permissions": [
+        "activeTab", "tabs"
+    ],
+    "content_security_policy": "script-src 'self' https://www.gstatic.com/; object-src 'self'"
+}
+
